@@ -24,3 +24,8 @@
 > https://e.developer.yahoo.co.jp/register
 
 アプリケーションIDを取得する
+
+## 使用するライブラリ
+- Alamofire
+- SwiftyJSON
+- SDWebImage
