@@ -10,6 +10,11 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+public extension Notification.Name {
+    public static let apiLoadStart = Notification.Name("ApiLoadStart")
+    public static let apiLoadComplete = Notification.Name("ApiLoadComplete")
+}
+
 public struct Shop: CustomStringConvertible {
     public var gid: String? = nil
     public var name: String? = nil
@@ -94,7 +99,7 @@ public struct QueryCondition {
 
 public class YahooLocalSearch {
     let apiId = "dj00aiZpPThGdXIyTERvdmNBeiZzPWNvbnN1bWVyc2VjcmV0Jng9MmQ-"
-    let apiUrl = "http://search.olp.yahooapis.jp/OpenLocalPlatform/V1/localSearch"
+    let apiUrl = "https://map.yahooapis.jp/search/local/V1/localSearch"
     let perPage = 10
     
     public var shops = [Shop]()
@@ -121,6 +126,8 @@ public class YahooLocalSearch {
         params["start"] = String(shops.count + 1)
         params["results"] = String(perPage)
         
+        NotificationCenter.default.post(name: .apiLoadStart, object: nil)
+        
         let request = Alamofire.request(apiUrl, method: .get, parameters: params).response {
             response in
             
@@ -130,6 +137,15 @@ public class YahooLocalSearch {
             }
             
             if response.error != nil {
+                var message = "Unknown error."
+                if let error = response.error {
+                    message = "\(error)"
+                }
+                
+                NotificationCenter.default.post(
+                    name: .apiLoadComplete,
+                    object: nil,
+                    userInfo: ["error": message])
                 return
             }
             
@@ -169,7 +185,6 @@ public class YahooLocalSearch {
                         shop.station = "\(line)"
                     }
                 }
-                print(shop)
                 self.shops.append(shop)
             }
             
@@ -178,6 +193,8 @@ public class YahooLocalSearch {
             } else {
                 self.total = 0
             }
+            
+            NotificationCenter.default.post(name: .apiLoadComplete, object: nil)
         }
     }
 }
