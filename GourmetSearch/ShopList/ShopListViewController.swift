@@ -12,6 +12,8 @@ class ShopListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var yls: YahooLocalSearch = YahooLocalSearch()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +22,15 @@ class ShopListViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        var qc = QueryCondition()
+        qc.query = "ハンバーガー"
+        yls = YahooLocalSearch(condition: qc)
+        yls.loadData(reset: true)
     }
 
 
