@@ -14,6 +14,7 @@
 		86AFDB8B1F9DE1BB00E107F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86AFDB8A1F9DE1BB00E107F7 /* Assets.xcassets */; };
 		86AFDB8E1F9DE1BB00E107F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86AFDB8C1F9DE1BB00E107F7 /* LaunchScreen.storyboard */; };
 		86C52C241F9DF51E009E39DD /* ShopListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C52C231F9DF51E009E39DD /* ShopListItemTableViewCell.swift */; };
+		86F9407A1F9F1325000D7E3D /* YahooLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F940791F9F1325000D7E3D /* YahooLocal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		86C52C1E1F9DE64B009E39DD /* GourmetSearch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GourmetSearch-Bridging-Header.h"; sourceTree = "<group>"; };
 		86C52C221F9DE7EB009E39DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		86C52C231F9DF51E009E39DD /* ShopListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListItemTableViewCell.swift; sourceTree = "<group>"; };
+		86F940791F9F1325000D7E3D /* YahooLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooLocal.swift; sourceTree = "<group>"; };
 		9A6F6F512BE04A82CD256925 /* Pods-GourmetSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GourmetSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-GourmetSearch/Pods-GourmetSearch.release.xcconfig"; sourceTree = "<group>"; };
 		FD365A56109327C9C36BA3B2 /* Pods_GourmetSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GourmetSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -76,6 +78,7 @@
 			children = (
 				86AFDB831F9DE1BB00E107F7 /* AppDelegate.swift */,
 				86AFDB8A1F9DE1BB00E107F7 /* Assets.xcassets */,
+				86F940781F9F12F0000D7E3D /* Common */,
 				86AFDB8F1F9DE1BB00E107F7 /* Info.plist */,
 				86AFDB8C1F9DE1BB00E107F7 /* LaunchScreen.storyboard */,
 				86AFDB871F9DE1BB00E107F7 /* Main.storyboard */,
@@ -91,6 +94,14 @@
 				86C52C231F9DF51E009E39DD /* ShopListItemTableViewCell.swift */,
 			);
 			path = ShopList;
+			sourceTree = "<group>";
+		};
+		86F940781F9F12F0000D7E3D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				86F940791F9F1325000D7E3D /* YahooLocal.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		E8F08B240E36C6CFA1C2150A /* Pods */ = {
@@ -237,6 +248,7 @@
 			files = (
 				86C52C241F9DF51E009E39DD /* ShopListItemTableViewCell.swift in Sources */,
 				86AFDB861F9DE1BB00E107F7 /* ShopListViewController.swift in Sources */,
+				86F9407A1F9F1325000D7E3D /* YahooLocal.swift in Sources */,
 				86AFDB841F9DE1BB00E107F7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
