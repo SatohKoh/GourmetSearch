@@ -74,12 +74,12 @@
 		86AFDB821F9DE1BB00E107F7 /* GourmetSearch */ = {
 			isa = PBXGroup;
 			children = (
-				86C52C251F9DF533009E39DD /* ShopList */,
 				86AFDB831F9DE1BB00E107F7 /* AppDelegate.swift */,
-				86AFDB871F9DE1BB00E107F7 /* Main.storyboard */,
 				86AFDB8A1F9DE1BB00E107F7 /* Assets.xcassets */,
-				86AFDB8C1F9DE1BB00E107F7 /* LaunchScreen.storyboard */,
 				86AFDB8F1F9DE1BB00E107F7 /* Info.plist */,
+				86AFDB8C1F9DE1BB00E107F7 /* LaunchScreen.storyboard */,
+				86AFDB871F9DE1BB00E107F7 /* Main.storyboard */,
+				86C52C251F9DF533009E39DD /* ShopList */,
 			);
 			path = GourmetSearch;
 			sourceTree = "<group>";

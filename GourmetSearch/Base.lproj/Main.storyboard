@@ -52,7 +52,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="22"/>
                                                             <color key="backgroundColor" red="1" green="0.21424608160570091" blue="0.16642420938141578" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="60" id="MpG-d4-WvA"/>
+                                                                <constraint firstAttribute="width" constant="60" id="lQS-K5-1jp"/>
                                                                 <constraint firstAttribute="height" constant="22" id="pbw-bJ-mEb"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
