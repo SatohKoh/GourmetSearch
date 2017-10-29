@@ -32,13 +32,15 @@ class ShopListViewController: UIViewController {
         qc.query = "ハンバーガー"
         
         yls = YahooLocalSearch(condition: qc)
-        
+                
         loadDataObserver = NotificationCenter.default.addObserver(
             forName: .apiLoadComplete,
             object: nil,
             queue: nil,
             using: {
                 (notification) in
+                
+                self.tableView.reloadData()
                 
                 if notification.userInfo != nil {
                     if let userInfo = notification.userInfo as? [String: String?] {
@@ -73,14 +75,19 @@ extension ShopListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        if section == 0 {
+            return yls.shops.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ShopListItem") as! ShopListItemTableViewCell
-            cell.name.text = "\(indexPath.row)"
-            return cell
+            if indexPath.row < yls.shops.count {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "ShopListItem") as! ShopListItemTableViewCell
+                cell.shop = yls.shops[indexPath.row]
+                return cell
+            }
         }
         return UITableViewCell()
     }
