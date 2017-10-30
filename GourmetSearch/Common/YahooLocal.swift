@@ -99,10 +99,12 @@ public struct QueryCondition {
 
 public class YahooLocalSearch {
     let apiId = "dj00aiZpPThGdXIyTERvdmNBeiZzPWNvbnN1bWVyc2VjcmV0Jng9MmQ-"
+//    let apiUrl = "http://search.olp.yahooapis.jp/OpenLocalPlatform/V1/localSearch"
     let apiUrl = "https://map.yahooapis.jp/search/local/V1/localSearch"
     let perPage = 10
     
     public var shops = [Shop]()
+    var loading = false
     public var total = 0
     var condition: QueryCondition = QueryCondition() {
         didSet {
@@ -115,10 +117,13 @@ public class YahooLocalSearch {
     public init(condition: QueryCondition){ self.condition = condition }
     
     public func loadData(reset: Bool = false) {
+        if loading { return }
         if reset {
             shops = []
             total = 0
         }
+        
+        loading = true
         
         var params = condition.queryParams
         params["appid"] = apiId
@@ -137,6 +142,8 @@ public class YahooLocalSearch {
             }
             
             if response.error != nil {
+                self.loading = false
+                
                 var message = "Unknown error."
                 if let error = response.error {
                     message = "\(error)"
@@ -153,7 +160,7 @@ public class YahooLocalSearch {
                 var shop = Shop()
                 
                 shop.gid = item["Gid"].string
-                shop.name = item["name"].string?.replacingOccurrences(of: "&#39", with: "'")
+                shop.name = item["Name"].string?.replacingOccurrences(of: "&#39", with: "'")
                 shop.yomi = item["Property"]["Yomi"].string
                 shop.tel = item["Property"]["Tel1"].string
                 shop.yomi = item["Property"]["Yomi"].string
@@ -166,7 +173,7 @@ public class YahooLocalSearch {
                 }
                 
                 shop.catchCopy = item["Property"]["CatchCopy"].string
-                shop.photoUrl = item["Property"]["PhotoUrl"].string
+                shop.photoUrl = item["Property"]["LeadImage"].string
                 
                 if item["Property"]["CouponFlag"].string == "true" {
                     shop.hasCoupon = true
@@ -185,6 +192,7 @@ public class YahooLocalSearch {
                         shop.station = "\(line)"
                     }
                 }
+//                print(shop)
                 self.shops.append(shop)
             }
             
@@ -193,7 +201,7 @@ public class YahooLocalSearch {
             } else {
                 self.total = 0
             }
-            
+            self.loading = false
             NotificationCenter.default.post(name: .apiLoadComplete, object: nil)
         }
     }
