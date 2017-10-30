@@ -14,10 +14,15 @@ class ShopListViewController: UIViewController {
     
     var yls: YahooLocalSearch = YahooLocalSearch()
     var loadDataObserver: NSObjectProtocol?
+    var refreshObserver: NSObjectProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ShopListViewController.onRefresh(_:)), for: .valueChanged)
+        self.tableView.addSubview(refreshControl)
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,6 +71,21 @@ class ShopListViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self.loadDataObserver!)
     }
+    
+    @objc func onRefresh(_ refreshControl: UIRefreshControl) {
+        refreshControl.beginRefreshing()
+        
+        refreshObserver = NotificationCenter.default.addObserver(
+            forName: .apiLoadComplete,
+            object: nil,
+            queue: nil,
+            using: {
+                notification in
+                NotificationCenter.default.removeObserver(self.refreshObserver!)
+                refreshControl.endRefreshing()
+        })
+        yls.loadData(reset: true)
+    }
 }
 
 // MARK: - UITableViewDelegate,UITableViewDataSource
@@ -86,6 +106,12 @@ extension ShopListViewController: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row < yls.shops.count {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ShopListItem") as! ShopListItemTableViewCell
                 cell.shop = yls.shops[indexPath.row]
+                
+                if yls.shops.count < yls.total {
+                    if yls.shops.count - indexPath.row <= 4 {
+                        yls.loadData()
+                    }
+                }
                 return cell
             }
         }

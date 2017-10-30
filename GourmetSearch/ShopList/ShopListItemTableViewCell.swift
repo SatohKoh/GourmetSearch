@@ -21,6 +21,15 @@ class ShopListItemTableViewCell: UITableViewCell {
     
     var shop: Shop = Shop() {
         didSet {
+            if let url = shop.photoUrl {
+                photo.sd_cancelCurrentAnimationImagesLoad() // なくても動作する
+                // httpは取得できないみたい
+                photo.sd_setImage(
+                    with: URL(string: url),
+                    placeholderImage: UIImage(named: "loading"),
+                    options: .retryFailed)
+            }
+            
             name.text = shop.name
 
             // クーポン表示
