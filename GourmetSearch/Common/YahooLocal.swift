@@ -154,7 +154,7 @@ public class YahooLocalSearch {
                 var shop = Shop()
                 
                 shop.gid = item["Gid"].string
-                shop.name = item["name"].string?.replacingOccurrences(of: "&#39", with: "'")
+                shop.name = item["Name"].string?.replacingOccurrences(of: "&#39", with: "'")
                 shop.yomi = item["Property"]["Yomi"].string
                 shop.tel = item["Property"]["Tel1"].string
                 shop.yomi = item["Property"]["Yomi"].string
@@ -167,7 +167,7 @@ public class YahooLocalSearch {
                 }
                 
                 shop.catchCopy = item["Property"]["CatchCopy"].string
-                shop.photoUrl = item["Property"]["PhotoUrl"].string
+                shop.photoUrl = item["Property"]["LeadImage"].string
                 
                 if item["Property"]["CouponFlag"].string == "true" {
                     shop.hasCoupon = true
