@@ -33,11 +33,11 @@ class ShopListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        var qc = QueryCondition()
-        qc.query = "ハンバーガー"
+//        var qc = QueryCondition()
+//        qc.query = "ハンバーガー"
+//
+//        yls = YahooLocalSearch(condition: qc)
         
-        yls = YahooLocalSearch(condition: qc)
-                
         loadDataObserver = NotificationCenter.default.addObserver(
             forName: .apiLoadComplete,
             object: nil,

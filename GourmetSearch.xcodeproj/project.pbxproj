@@ -14,6 +14,8 @@
 		86AFDB8B1F9DE1BB00E107F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86AFDB8A1F9DE1BB00E107F7 /* Assets.xcassets */; };
 		86AFDB8E1F9DE1BB00E107F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86AFDB8C1F9DE1BB00E107F7 /* LaunchScreen.storyboard */; };
 		86C52C241F9DF51E009E39DD /* ShopListItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C52C231F9DF51E009E39DD /* ShopListItemTableViewCell.swift */; };
+		86E836531FA9C04C007D6DEA /* SearchTopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E836521FA9C04C007D6DEA /* SearchTopTableViewController.swift */; };
+		86E836551FA9C33F007D6DEA /* FreewordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E836541FA9C33F007D6DEA /* FreewordTableViewCell.swift */; };
 		86F9407A1F9F1325000D7E3D /* YahooLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F940791F9F1325000D7E3D /* YahooLocal.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		86C52C1E1F9DE64B009E39DD /* GourmetSearch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GourmetSearch-Bridging-Header.h"; sourceTree = "<group>"; };
 		86C52C221F9DE7EB009E39DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		86C52C231F9DF51E009E39DD /* ShopListItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListItemTableViewCell.swift; sourceTree = "<group>"; };
+		86E836521FA9C04C007D6DEA /* SearchTopTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTopTableViewController.swift; sourceTree = "<group>"; };
+		86E836541FA9C33F007D6DEA /* FreewordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreewordTableViewCell.swift; sourceTree = "<group>"; };
 		86F940791F9F1325000D7E3D /* YahooLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooLocal.swift; sourceTree = "<group>"; };
 		9A6F6F512BE04A82CD256925 /* Pods-GourmetSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GourmetSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-GourmetSearch/Pods-GourmetSearch.release.xcconfig"; sourceTree = "<group>"; };
 		FD365A56109327C9C36BA3B2 /* Pods_GourmetSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GourmetSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,8 +94,10 @@
 		86C52C251F9DF533009E39DD /* ShopList */ = {
 			isa = PBXGroup;
 			children = (
-				86AFDB851F9DE1BB00E107F7 /* ShopListViewController.swift */,
+				86E836541FA9C33F007D6DEA /* FreewordTableViewCell.swift */,
+				86E836521FA9C04C007D6DEA /* SearchTopTableViewController.swift */,
 				86C52C231F9DF51E009E39DD /* ShopListItemTableViewCell.swift */,
+				86AFDB851F9DE1BB00E107F7 /* ShopListViewController.swift */,
 			);
 			path = ShopList;
 			sourceTree = "<group>";
@@ -249,7 +255,9 @@
 				86C52C241F9DF51E009E39DD /* ShopListItemTableViewCell.swift in Sources */,
 				86AFDB861F9DE1BB00E107F7 /* ShopListViewController.swift in Sources */,
 				86F9407A1F9F1325000D7E3D /* YahooLocal.swift in Sources */,
+				86E836551FA9C33F007D6DEA /* FreewordTableViewCell.swift in Sources */,
 				86AFDB841F9DE1BB00E107F7 /* AppDelegate.swift in Sources */,
+				86E836531FA9C04C007D6DEA /* SearchTopTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
