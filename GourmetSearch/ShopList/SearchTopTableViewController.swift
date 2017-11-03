@@ -69,6 +69,10 @@ class SearchTopTableViewController: UITableViewController {
             vc.yls.condition.query = freeword?.text
         }
     }
+    
+    @IBAction func onTap(_ sender: UITapGestureRecognizer) {
+        freeword?.resignFirstResponder()
+    }
 }
 
 extension SearchTopTableViewController: UITextFieldDelegate {

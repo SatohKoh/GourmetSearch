@@ -18,6 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Freeword" id="sht-uY-N1v" customClass="FreewordTableViewCell" customModule="GourmetSearch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -62,6 +63,7 @@
                         <connections>
                             <outlet property="dataSource" destination="SqO-4z-wgy" id="hPr-it-cGJ"/>
                             <outlet property="delegate" destination="SqO-4z-wgy" id="QWi-QH-W64"/>
+                            <outletCollection property="gestureRecognizers" destination="CPA-db-DgC" appends="YES" id="3zp-OQ-OGs"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="店舗検索" id="Cng-RG-QnY"/>
@@ -70,6 +72,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ATQ-Lh-i0u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="CPA-db-DgC">
+                    <connections>
+                        <action selector="onTap:" destination="SqO-4z-wgy" id="P3J-DP-JCU"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-753" y="63"/>
         </scene>
