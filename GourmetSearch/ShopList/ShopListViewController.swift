@@ -33,11 +33,6 @@ class ShopListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        var qc = QueryCondition()
-//        qc.query = "ハンバーガー"
-//
-//        yls = YahooLocalSearch(condition: qc)
-        
         loadDataObserver = NotificationCenter.default.addObserver(
             forName: .apiLoadComplete,
             object: nil,
@@ -72,6 +67,15 @@ class ShopListViewController: UIViewController {
         NotificationCenter.default.removeObserver(self.loadDataObserver!)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PushShopDetail" {
+            let vc = segue.destination as! ShopDetailViewController
+            if let indexPath = sender as? IndexPath {
+                vc.shop = yls.shops[indexPath.row]
+            }
+        }
+    }
+    
     @objc func onRefresh(_ refreshControl: UIRefreshControl) {
         refreshControl.beginRefreshing()
         
@@ -92,6 +96,11 @@ class ShopListViewController: UIViewController {
 extension ShopListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "PushShopDetail", sender: indexPath)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
