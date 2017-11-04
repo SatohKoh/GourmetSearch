@@ -248,7 +248,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Zy-5h-XX5" userLabel="電話番号ボタン">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                                        <state key="normal" title="Button" backgroundImage="blank"/>
+                                                        <state key="normal" backgroundImage="blank"/>
                                                         <connections>
                                                             <action selector="telTapped:" destination="26j-Z1-Vgh" eventType="touchUpInside" id="Yfv-3s-lkv"/>
                                                         </connections>
@@ -290,7 +290,6 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbZ-0H-xGc" userLabel="住所ボタン">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                                        <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="addressTapped:" destination="26j-Z1-Vgh" eventType="touchUpInside" id="h4H-Vo-Bbo"/>
                                                         </connections>
@@ -338,7 +337,6 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7FV-eI-gcF" userLabel="お気に入りボタン">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                                        <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="favoriteTapped:" destination="26j-Z1-Vgh" eventType="touchUpInside" id="NeL-KZ-kug"/>
                                                         </connections>
@@ -350,7 +348,7 @@
                                                             <constraint firstAttribute="width" constant="32" id="vz0-DT-HDt"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSK-YQ-MSp" userLabel="お気に入りラベル">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSK-YQ-MSp" userLabel="お気に入りラベル">
                                                         <rect key="frame" x="48" y="0.0" width="319" height="44"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>

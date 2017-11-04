@@ -60,7 +60,10 @@ class ShopListViewController: UIViewController {
                 }
             }
         )
-        yls.loadData(reset: true)
+        
+        if yls.shops.count == 0 {
+            yls.loadData(reset: true)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
