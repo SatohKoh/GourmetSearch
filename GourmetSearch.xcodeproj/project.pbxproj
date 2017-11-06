@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2414F03EE6A720DCD21DB13F /* Pods_GourmetSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD365A56109327C9C36BA3B2 /* Pods_GourmetSearch.framework */; };
+		8613E97A1FB06C0F00E00D58 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613E9791FB06C0F00E00D58 /* Favorite.swift */; };
 		862F99FE1FAD828700D6EAD3 /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862F99FD1FAD828700D6EAD3 /* ShopDetailViewController.swift */; };
 		86AFDB841F9DE1BB00E107F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AFDB831F9DE1BB00E107F7 /* AppDelegate.swift */; };
 		86AFDB861F9DE1BB00E107F7 /* ShopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AFDB851F9DE1BB00E107F7 /* ShopListViewController.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		796A8FDE86BCCC5019F7D891 /* Pods-GourmetSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GourmetSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GourmetSearch/Pods-GourmetSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		8613E9791FB06C0F00E00D58 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		862F99FD1FAD828700D6EAD3 /* ShopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
 		86AFDB801F9DE1BB00E107F7 /* GourmetSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86AFDB831F9DE1BB00E107F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				86F940791F9F1325000D7E3D /* YahooLocal.swift */,
+				8613E9791FB06C0F00E00D58 /* Favorite.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86C52C241F9DF51E009E39DD /* ShopListItemTableViewCell.swift in Sources */,
+				8613E97A1FB06C0F00E00D58 /* Favorite.swift in Sources */,
 				86AFDB861F9DE1BB00E107F7 /* ShopListViewController.swift in Sources */,
 				86F9407A1F9F1325000D7E3D /* YahooLocal.swift in Sources */,
 				86E836551FA9C33F007D6DEA /* FreewordTableViewCell.swift in Sources */,
