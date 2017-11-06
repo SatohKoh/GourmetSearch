@@ -37,6 +37,8 @@ class ShopDetailViewController: UIViewController {
         name.text = shop.name
         tel.text = shop.tel
         address.text = shop.address
+        
+        updateFavoriteButton()
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +55,21 @@ class ShopDetailViewController: UIViewController {
         view.layoutIfNeeded()
     }
     
+    // MARK: - アプリケーションロジック
+    func updateFavoriteButton() {
+        guard let gid = shop.gid else {
+            return
+        }
+        
+        if Favorite.inFavorites(gid) {
+            favoriteIcon.image = UIImage(named: "star-on")
+            favoriteLabel.text = "お気に入りから外す"
+        } else {
+            favoriteIcon.image = UIImage(named: "star-off")
+            favoriteLabel.text = "お気に入りに入れる"
+        }
+    }
+    
     // MARK: - IBAction
     @IBAction func telTapped(_ sender: UIButton) {
     }
@@ -61,6 +78,12 @@ class ShopDetailViewController: UIViewController {
     }
     
     @IBAction func favoriteTapped(_ sender: UIButton) {
+        guard let gid = shop.gid else {
+            return
+        }
+        
+        Favorite.toggle(gid)
+        updateFavoriteButton()
     }
     
     /*

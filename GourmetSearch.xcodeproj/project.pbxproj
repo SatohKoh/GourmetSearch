@@ -110,8 +110,8 @@
 		86F940781F9F12F0000D7E3D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				86F940791F9F1325000D7E3D /* YahooLocal.swift */,
 				8613E9791FB06C0F00E00D58 /* Favorite.swift */,
+				86F940791F9F1325000D7E3D /* YahooLocal.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
