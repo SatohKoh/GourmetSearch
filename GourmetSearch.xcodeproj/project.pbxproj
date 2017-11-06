@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2414F03EE6A720DCD21DB13F /* Pods_GourmetSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD365A56109327C9C36BA3B2 /* Pods_GourmetSearch.framework */; };
 		8613E97A1FB06C0F00E00D58 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613E9791FB06C0F00E00D58 /* Favorite.swift */; };
+		8613E97D1FB075F300E00D58 /* SearchNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613E97C1FB075F300E00D58 /* SearchNavigationController.swift */; };
+		8613E97F1FB0760E00E00D58 /* FavoriteNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8613E97E1FB0760E00E00D58 /* FavoriteNavigationController.swift */; };
 		862F99FE1FAD828700D6EAD3 /* ShopDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862F99FD1FAD828700D6EAD3 /* ShopDetailViewController.swift */; };
 		86AFDB841F9DE1BB00E107F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AFDB831F9DE1BB00E107F7 /* AppDelegate.swift */; };
 		86AFDB861F9DE1BB00E107F7 /* ShopListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AFDB851F9DE1BB00E107F7 /* ShopListViewController.swift */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		796A8FDE86BCCC5019F7D891 /* Pods-GourmetSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GourmetSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GourmetSearch/Pods-GourmetSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		8613E9791FB06C0F00E00D58 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		8613E97C1FB075F300E00D58 /* SearchNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNavigationController.swift; sourceTree = "<group>"; };
+		8613E97E1FB0760E00E00D58 /* FavoriteNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteNavigationController.swift; sourceTree = "<group>"; };
 		862F99FD1FAD828700D6EAD3 /* ShopDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopDetailViewController.swift; sourceTree = "<group>"; };
 		86AFDB801F9DE1BB00E107F7 /* GourmetSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GourmetSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86AFDB831F9DE1BB00E107F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8613E97B1FB075BA00E00D58 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				8613E97E1FB0760E00E00D58 /* FavoriteNavigationController.swift */,
+				8613E97C1FB075F300E00D58 /* SearchNavigationController.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
 		86AFDB771F9DE1BB00E107F7 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +104,7 @@
 				86AFDB8C1F9DE1BB00E107F7 /* LaunchScreen.storyboard */,
 				86AFDB871F9DE1BB00E107F7 /* Main.storyboard */,
 				86C52C251F9DF533009E39DD /* ShopList */,
+				8613E97B1FB075BA00E00D58 /* Tabs */,
 			);
 			path = GourmetSearch;
 			sourceTree = "<group>";
@@ -265,7 +279,9 @@
 				86E836551FA9C33F007D6DEA /* FreewordTableViewCell.swift in Sources */,
 				862F99FE1FAD828700D6EAD3 /* ShopDetailViewController.swift in Sources */,
 				86AFDB841F9DE1BB00E107F7 /* AppDelegate.swift in Sources */,
+				8613E97F1FB0760E00E00D58 /* FavoriteNavigationController.swift in Sources */,
 				86E836531FA9C04C007D6DEA /* SearchTopTableViewController.swift in Sources */,
+				8613E97D1FB075F300E00D58 /* SearchNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
