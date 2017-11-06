@@ -27,13 +27,11 @@ class SearchTopTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - UITableViewDelegate
+    // MARK: - UITableViewDelegate,UITableViewDataSource
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -62,7 +60,7 @@ class SearchTopTableViewController: UITableViewController {
         return UITableViewCell()
     }
     
-    // MARK: -Navigation
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "PushShopList" {
             let vc = segue.destination as! ShopListViewController
@@ -70,6 +68,7 @@ class SearchTopTableViewController: UITableViewController {
         }
     }
     
+    // MARK: - IBAction
     @IBAction func onTap(_ sender: UITapGestureRecognizer) {
         freeword?.resignFirstResponder()
     }

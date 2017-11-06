@@ -33,17 +33,16 @@ class ShopListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        var qc = QueryCondition()
-//        qc.query = "ハンバーガー"
-//
-//        yls = YahooLocalSearch(condition: qc)
-        
         loadDataObserver = NotificationCenter.default.addObserver(
             forName: .apiLoadComplete,
             object: nil,
             queue: nil,
             using: {
                 (notification) in
+                
+                if self.yls.condition.gid != nil {
+                    self.yls.sortByGid()
+                }
                 
                 self.tableView.reloadData()
                 
@@ -65,13 +64,46 @@ class ShopListViewController: UIViewController {
                 }
             }
         )
-        yls.loadData(reset: true)
+        
+        if yls.shops.count == 0 {
+            if self.navigationController is FavoriteNavigationController {
+                loadFavorites()
+                self.navigationItem.title = "お気に入り"
+            } else {
+                yls.loadData(reset: true)
+                self.navigationItem.title = "店舗一覧"
+            }
+            
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self.loadDataObserver!)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PushShopDetail" {
+            let vc = segue.destination as! ShopDetailViewController
+            if let indexPath = sender as? IndexPath {
+                vc.shop = yls.shops[indexPath.row]
+            }
+        }
+    }
+    
+    // MARK: - アプリケーションロジック
+    func loadFavorites() {
+        Favorite.load()
+        if Favorite.favorites.count > 0 {
+            var condition = QueryCondition()
+            condition.gid = Favorite.favorites.joined(separator: ",")
+            yls.condition = condition
+            yls.loadData(reset: true)
+        } else {
+            NotificationCenter.default.post(name: .apiLoadComplete, object: nil)
+        }
+    }
+    
+    // MARK: - P2R
     @objc func onRefresh(_ refreshControl: UIRefreshControl) {
         refreshControl.beginRefreshing()
         
@@ -84,7 +116,12 @@ class ShopListViewController: UIViewController {
                 NotificationCenter.default.removeObserver(self.refreshObserver!)
                 refreshControl.endRefreshing()
         })
-        yls.loadData(reset: true)
+        
+        if self.navigationController is FavoriteNavigationController {
+            loadFavorites()
+        } else {
+            yls.loadData(reset: true)
+        }
     }
 }
 
@@ -92,6 +129,11 @@ class ShopListViewController: UIViewController {
 extension ShopListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "PushShopDetail", sender: indexPath)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
