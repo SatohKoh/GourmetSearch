@@ -40,6 +40,10 @@ class ShopListViewController: UIViewController {
             using: {
                 (notification) in
                 
+                if self.yls.condition.gid != nil {
+                    self.yls.sortByGid()
+                }
+                
                 self.tableView.reloadData()
                 
                 if notification.userInfo != nil {
