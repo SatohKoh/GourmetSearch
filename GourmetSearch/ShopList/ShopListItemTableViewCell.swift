@@ -21,9 +21,12 @@ class ShopListItemTableViewCell: UITableViewCell {
     
     var shop: Shop = Shop() {
         didSet {
-            if let url = shop.photoUrl {
+            if var url = shop.photoUrl {
                 photo.sd_cancelCurrentAnimationImagesLoad() // なくても動作する
                 // httpは取得できないみたい
+                if let range = url.range(of: "http") {
+                    url.replaceSubrange(range, with: "https")
+                }
                 photo.sd_setImage(
                     with: URL(string: url),
                     placeholderImage: UIImage(named: "loading"),

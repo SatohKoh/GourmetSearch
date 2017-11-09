@@ -28,7 +28,10 @@ class ShopDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let url = shop.photoUrl {
+        if var url = shop.photoUrl {
+            if let range = url.range(of: "http") {
+                url.replaceSubrange(range, with: "https")
+            }
             photo.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "loading"));
         } else {
             photo.image = UIImage(named: "loading")
