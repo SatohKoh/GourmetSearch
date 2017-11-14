@@ -28,7 +28,6 @@ class SearchTopTableViewController: UITableViewController {
     }
     
     // MARK: - UITableViewDelegate,UITableViewDataSource
-    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
     }
