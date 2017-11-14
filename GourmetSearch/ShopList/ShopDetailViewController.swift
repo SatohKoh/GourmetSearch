@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ShopDetailViewController: UIViewController {
+class ShopDetailViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var photo: UIImageView!
@@ -28,7 +28,10 @@ class ShopDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let url = shop.photoUrl {
+        if var url = shop.photoUrl {
+            if let range = url.range(of: "http") {
+                url.replaceSubrange(range, with: "https")
+            }
             photo.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "loading"));
         } else {
             photo.image = UIImage(named: "loading")
@@ -38,7 +41,24 @@ class ShopDetailViewController: UIViewController {
         tel.text = shop.tel
         address.text = shop.address
         
+        if let lat = shop.lat {
+            if let lon = shop.lon {
+                let cllc = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+                let mkcr = MKCoordinateRegionMakeWithDistance(cllc, 200, 200)
+                map.setRegion(mkcr, animated: false)
+                
+                let pin = MKPointAnnotation()
+                pin.coordinate = cllc
+                map.addAnnotation(pin)
+            }
+        }
+        
         updateFavoriteButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.scrollView.delegate = self
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {

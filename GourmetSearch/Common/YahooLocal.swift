@@ -99,8 +99,8 @@ public struct QueryCondition {
 
 public class YahooLocalSearch {
     let apiId = "dj00aiZpPThGdXIyTERvdmNBeiZzPWNvbnN1bWVyc2VjcmV0Jng9MmQ-"
-    let apiUrl = "http://search.olp.yahooapis.jp/OpenLocalPlatform/V1/localSearch"
-//    let apiUrl = "https://map.yahooapis.jp/search/local/V1/localSearch"
+//    let apiUrl = "http://search.olp.yahooapis.jp/OpenLocalPlatform/V1/localSearch"
+    let apiUrl = "https://map.yahooapis.jp/search/local/V1/localSearch"
     let perPage = 10
     
     public var shops = [Shop]()
@@ -133,7 +133,7 @@ public class YahooLocalSearch {
         
         NotificationCenter.default.post(name: .apiLoadStart, object: nil)
         
-        let request = Alamofire.request(apiUrl, method: .get, parameters: params).response {
+        _ = Alamofire.request(apiUrl, method: .get, parameters: params).response {
             response in
             
             var json = JSON.null;
@@ -156,7 +156,7 @@ public class YahooLocalSearch {
                 return
             }
             
-            for (key, item) in json["Feature"] {
+            for (_, item) in json["Feature"] {
                 var shop = Shop()
                 
                 shop.gid = item["Gid"].string

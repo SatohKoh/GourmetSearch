@@ -263,7 +263,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBi-Qi-voG">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="791"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qbG-Qb-jiX">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -364,13 +364,13 @@
                                                 </constraints>
                                             </view>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="uH8-06-SwP">
-                                                <rect key="frame" x="0.0" y="347" width="375" height="150"/>
+                                                <rect key="frame" x="0.0" y="347" width="375" height="300"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="Ms6-77-PBD"/>
+                                                    <constraint firstAttribute="height" constant="300" id="jB6-fx-Ltu"/>
                                                 </constraints>
                                             </mapView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVz-Nv-66A" userLabel="お気に入りボタンコンテナ">
-                                                <rect key="frame" x="0.0" y="517" width="375" height="44"/>
+                                                <rect key="frame" x="0.0" y="667" width="375" height="44"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7FV-eI-gcF" userLabel="お気に入りボタン">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
